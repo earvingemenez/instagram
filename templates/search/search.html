@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<form>
+    <select name="tag">
+        {% for tag in tags %}
+        <option value="{{tag.name }}">{{ tag.name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Search</button>
+</form>
+
+<table>
+<thead>
+    <tr>
+        <th>type</th>
+        <th>users_in_photo</th>
+        <th>tags</th>
+        <th>comments</th>
+        <th>user</th>
+        <th>link</th>
+    </tr>
+</thead>
+
+<tbody>
+<tr>
+    <td>{{ post.type }}</td>
+    <td>{{ post.users_in_photo }}</td>
+    <td>{{ post.tags }}</td>
+    <td>{{ post.comments.count }}</td>
+    <td>{{ post.user.username }}</td>
+    <td>{{ post.link }}</td>
+</tr>
+</tbody>
+</table>
+{% endblock %}
